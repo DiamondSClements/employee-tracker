@@ -164,6 +164,7 @@ const addEmployee = () => {
       const query = 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
       db.query(query, [answer.employeeFirstName, answer.employeeLastName, answer.employeeRoleId, answer.employeeManagerId], (err, results) => {
         if (err) throw err;
+        console.table(results);
         console.log(`Employee '${answer.employeeFirstName} ${answer.employeeLastName}' added successfully!`);
         startApp();
       });
